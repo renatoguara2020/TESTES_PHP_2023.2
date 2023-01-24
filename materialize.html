@@ -9,23 +9,27 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
     />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
     <title>Document</title>
   </head>
   <body>
     <div class="row">
-      <form class="col s12">
+      <form class="col s12" action="cadastrar.php" method="post">
         <div class="row">
           <div class="input-field col s6">
             <input
               placeholder="Placeholder"
-              id="first_name"
+              name="first_name"
               type="text"
               class="validate"
             />
             <label for="first_name">First Name</label>
           </div>
           <div class="input-field col s6">
-            <input id="last_name" type="text" class="validate" />
+            <input name="last_name" type="text" class="validate" />
             <label for="last_name">Last Name</label>
           </div>
         </div>
@@ -38,18 +42,18 @@
               type="text"
               class="validate"
             />
-            <label for="disabled">Disabled</label>
+            <label>Disabled</label>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s12">
-            <input id="password" type="password" class="validate" />
+            <input name="password" type="password" class="validate" />
             <label for="password">Password</label>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s12">
-            <input id="email" type="email" class="validate" />
+            <input name="email" type="email" class="validate" />
             <label for="email">Email</label>
           </div>
         </div>
@@ -57,7 +61,7 @@
           <div class="col s12">
             This is an inline input field:
             <div class="input-field inline">
-              <input id="email_inline" type="email" class="validate" />
+              <input name="email_inline" type="email" class="validate" />
               <label for="email_inline">Email</label>
               <span class="helper-text" data-error="wrong" data-success="right"
                 >Helper text</span
@@ -66,7 +70,8 @@
           </div>
         </div>
         <a class="waves-effect waves-light btn"
-          ><i class="material-icons left">cloud</i>button</a
+          ><i class="material-icons left" name="cadastrar_php">create</i
+          >Cadastrar</a
         >
       </form>
     </div>
