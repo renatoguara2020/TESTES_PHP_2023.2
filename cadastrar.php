@@ -33,5 +33,7 @@ if (isset($_POST['cadastrar_php'])) {
 
     if ($stmt->$conn->rowCount() > 0) {
         echo 'Usuário cadastrado com sucesso';
+    } else {
+        echo 'Usuário não cadastrado';
     }
 }
