@@ -11,10 +11,11 @@ try {
   $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 
   $stmt = $conn->prepare("UPDATE MyGuests SET lastname=:lastname, firstname=:firstname WHERE id=2");
-
+  $conn->exec("set names utf8mb4");
   // Prepare statement
   $stmt->bindParam(':firstname',$firstname);
   $stmt->bindParam(':lastname', $lastname);
+  
 
   // execute the query
   $stmt->execute();
