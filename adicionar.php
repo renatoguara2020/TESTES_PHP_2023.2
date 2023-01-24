@@ -20,17 +20,20 @@ $cidade = filter_input(INPUT_POST, 'cidade', FILTER_SANITIZE_SPECIAL_CHARS);
 
 $idade = filter_input(INPUT_POST, 'idade', FILTER_SANITIZE_SPECIAL_CHARS);
 
+$senha = md5($_POST['senha']);
+
 
  }
 
  echo "<br/><a href='javascript:self.history.back();'>Go Back</a>";
 
-$stmt = $conn->prepare("INSERT INTO users(nome, email, cidade, idade, dataAtual)VALUES(:nome, :email,:cidade, :idade, NOW())");
+$stmt = $conn->prepare("INSERT INTO users(nome, email, cidade, idade, dataAtual, senha)VALUES(:nome, :email,:cidade, :idade, NOW(), :senha)");
 $conn->exec("set names utf8mb4");
 $stmt->bindParam(':nome', $nome, PDO::PARAM_STR);
 $stmt->bindParam(':email', $email, PDO::PARAM_STR);
 $stmt->bindParam(':cidade', $cidade, PDO::PARAM_STR);
 $stmt->bindParam(':idade', $idade, PDO::PARAM_INT);
+$stmt->bindParam(':senha', $senha, PDO::PARAM_STR);
 
 
 $stmt->execute();
