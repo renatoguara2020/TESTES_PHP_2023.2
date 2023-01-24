@@ -18,7 +18,7 @@ $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_SPECIAL_CHARS);
 $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_SPECIAL_CHARS);
 
 $stmt = $conn->prepare(
-    'INSERT INTO usuarios(first_name, last_name, password, email)VALUES(:first_name, :last_name, :password, :email)'
+    'INSERT INTO usuarios(first_name, last_name, password, email, dataAtual)VALUES(:first_name, :last_name, :password, :email, NOW())'
 );
 
 $stmt->bindValue(':first_name', $first_name, PDO::PARAM_STR);
