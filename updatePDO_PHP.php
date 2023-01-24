@@ -8,11 +8,13 @@ try {
   $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
   // set the PDO error mode to exception
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 
-  $sql = "UPDATE MyGuests SET lastname='Doe' WHERE id=2";
+  $stmt = $conn->prepare("UPDATE MyGuests SET lastname=:lastname, firstname=:firstname WHERE id=2");
 
   // Prepare statement
-  $stmt = $conn->prepare($sql);
+  $stmt->bindParam(':firstname',$firstname);
+  $stmt->bindParam(':lastname', $lastname);
 
   // execute the query
   $stmt->execute();
