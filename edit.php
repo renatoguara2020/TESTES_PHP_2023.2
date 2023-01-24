@@ -1,5 +1,6 @@
 <?php 
 
+$myDate = date('d/m/Y H:i:s');
 include_once('connection.php');
 
  if(isset($_POST['Update'])){

@@ -5,6 +5,8 @@
 
 include_once('connection.php');
 
+$myDate = date('d/m/Y H:i:s');
+
 if(isset($_POST['Submit'])){
  if(isset($_POST['nome']) || isset($_POST['email']) || isset($_POST['cidade']) || isset($_POST['idade'])){
 

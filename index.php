@@ -1,7 +1,8 @@
 <?php
 
 include_once('connection.php');
-
+date_default_timezone_set('America/Sao_Paulo');
+$myDate = date('d/m/Y H:i:s');
 
 $result = $conn->query("SELECT * FROM users ORDER BY id ASC");
 
