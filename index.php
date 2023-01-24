@@ -1,11 +1,10 @@
 <?php
 
-include_once('connection.php');
+include_once 'connection.php';
 date_default_timezone_set('America/Sao_Paulo');
 $myDate = date('d/m/Y H:i:s');
 
-$result = $conn->query("SELECT * FROM users ORDER BY id ASC");
-
+$result = $conn->query('SELECT * FROM users ORDER BY id ASC');
 ?>
 
 <!DOCTYPE html>
@@ -35,19 +34,18 @@ $result = $conn->query("SELECT * FROM users ORDER BY id ASC");
             <th scope="col">Update | Delete</th>
         </thead>
         <?php
-       
-        
-         while($row = $result->fetch(PDO::FETCH_ASSOC)){
-        echo "<tr>";
-            echo "<td>".$row['id']."</td>";
-            echo "<td>".$row['nome']."</td>";
-            echo "<td>".$row['idade']."</td>";
-            echo "<td>".$row['email']."</td>";
-            echo "<td>".$row['cidade']."</td>";
-            echo "<td>".$row['dataAtual']."</td>";
-            echo "<td><a href=\"edit.php?id=$row[id]\">Update</a> | <a href=\"delete.php?id=$row[id]\" onClick=\"return confirm('Are you sure you want to delete?')\">Delete</a></td>";		
-	}     echo "</tr>";
-	?>
+        while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+            echo '<tr>';
+            echo '<td>' . $row['id'] . '</td>';
+            echo '<td>' . $row['nome'] . '</td>';
+            echo '<td>' . $row['idade'] . '</td>';
+            echo '<td>' . $row['email'] . '</td>';
+            echo '<td>' . $row['cidade'] . '</td>';
+            echo '<td>' . date('d/m/Y'), strtotime($row['dataAtual']) . '</td>';
+            echo "<td><a href=\"edit.php?id=$row[id]\">Update</a> | <a href=\"delete.php?id=$row[id]\" onClick=\"return confirm('Are you sure you want to delete?')\">Delete</a></td>";
+        }
+        echo '</tr>';
+        ?>
     </table>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js">
     </script>
