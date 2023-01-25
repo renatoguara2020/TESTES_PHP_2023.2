@@ -1,18 +1,19 @@
 <?php
 
 include_once 'connection1.php';
-
-$last_name = filter_input(
-    INPUT_POST,
-    'last_name',
-    FILTER_SANITIZE_SPECIAL_CHARS
-);
+if (isset($_POST['last_name']) && $_POST['last_name'] != '') {
+    $last_name = filter_input(
+        INPUT_POST,
+        'last_name',
+        FILTER_SANITIZE_SPECIAL_CHARS
+    );
+}
 
 $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_SPECIAL_CHARS);
 
 $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_SPECIAL_CHARS);
 
-if (isset($_POST['first_name']) && $_POST['first_name'] != null) {
+if (isset($_POST['first_name']) && $_POST['first_name'] != '') {
     $first_name = filter_input(
         INPUT_POST,
         'first_name',
